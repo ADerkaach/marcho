@@ -3,20 +3,100 @@
 @import "reset";
 @import "global";
 @import "libs";
+.top {
+  &__container {
+    max-width: 1700px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    padding: 120px 0 130px;
+    text-align: center;
+  }
+}
+.modal {
+  max-width: 570px;
+  margin: 0 auto 115px;
+  padding-top: 100px;
+  &__links {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  &__link {
+    color: #909090;
+    font-size: 22px;
+    @extend %roboto-400;
+    text-transform: uppercase;
+    margin: 0 30px;
+  }
+  &__link--active {
+    color: $accent;
+  }
+  &__label {
+    margin-bottom: 30px;
+    display: block;
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: $bg;
+    margin-top: 4px;
+    height: 60px;
+    padding: 0 15px;
+  }
+  &__btn {
+    display: block;
+    background-color: $title;
+    text-transform: uppercase;
+    color: white;
+    @extend %roboto-400;
+    padding: 14px 0;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+  }
+  &__error {
+    margin-top: 12px;
+    color: $accent;
+    display: inline-block;
+  }
+  &__text {
+    margin-bottom: 25px;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.page-404 {
+  padding: 110px 0 120px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__content {
+    max-width: 570px;
+    width: 100%;
+  }
+  &__title {
+    color: #28384f;
+    margin-bottom: 40px;
+    @extend %roboto-700;
+    font-size: 48px;
+    line-height: 52px;
+  }
+  &__text {
+    margin-bottom: 55px;
+    max-width: 470px;
+  }
+  &__link {
+    background-color: $accent;
+    text-transform: uppercase;
+    color: white;
+    padding: 14px 35px;
+    @extend %roboto-400;
+    box-shadow: 0px 7px 20px 0px rgba(255, 17, 48, 0.3);
+  }
+}
 .shop {
   padding: 120px 0 105px;
   &__inner {
@@ -25,6 +105,9 @@
   &__filters {
     width: 370px;
     margin-right: 30px;
+  }
+  &__filter-btn{
+    display: none;
   }
 }
 .filter {
@@ -778,13 +861,34 @@
       color: $accent;
     }
   }
-  .blog-box {
-    justify-content: start;
-    &__author {
+  .blog-box{
+    display: flex;
+    margin-bottom: 20px;
+    &__author{
       margin-right: 30px;
     }
-  }
+    &__author,
+    &__date {
+      padding-left: 30px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 0;
+        top: 4px;
+      }
+    }
+    &__author::before {
+      background-image: url("../images/icons/user-grey.svg");
+    }
+    &__date::before {
+      background-image: url("../images/icons/time.svg");
+    }
+  }  
 }
+
 .person {
   border: 1px solid #ececec;
   margin-bottom: 40px;
@@ -899,18 +1003,17 @@
       margin: 25px 0;
       font-size: 22px;
     }
-    
   }
   &__left-img {
-      float: left;
-      margin-right: 30px;
-      margin-bottom: 10px;
-    }
-    &__right-img {
-      float: right;
-      margin-left: 30px;
-      margin-bottom: 10px;
-    }
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 10px;
+  }
+  &__right-img {
+    float: right;
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
   &__info {
     display: flex;
     margin-bottom: 25px;
@@ -957,7 +1060,6 @@
       text-transform: uppercase;
       @extend %roboto-700;
       color: $title;
-
     }
   }
   &__share {
@@ -992,14 +1094,14 @@
     margin-right: 30px;
     object-fit: cover;
   }
-  &__author-name{
+  &__author-name {
     margin-bottom: 24px;
     font-size: 22px;
     @extend %roboto-700;
     color: $title;
   }
 }
-.comments-title{
+.comments-title {
   margin-bottom: 25px;
   color: $title;
   font-size: 24px;
@@ -1010,35 +1112,35 @@
   height: 450px;
   width: 100%;
 }
-.map{
+.map {
   padding: 120px 0;
 }
-.contact{
+.contact {
   padding-bottom: 120px;
-  &__inner{
+  &__inner {
     display: flex;
   }
-  &__info{
+  &__info {
     max-width: 370px;
     margin-right: 30px;
   }
-  &__info-title{
+  &__info-title {
     font-size: 48px;
     line-height: 58px;
     color: $title;
     @extend %roboto-700;
     margin-bottom: 20px;
   }
-  &__info-text{
+  &__info-text {
     margin-bottom: 60px;
   }
-  &__info-item{
+  &__info-item {
     margin-top: 55px;
     color: $title;
     padding-left: 80px;
     position: relative;
-    &::before{
-      content: '';
+    &::before {
+      content: "";
       position: absolute;
       top: -5px;
       left: 0;
@@ -1046,42 +1148,42 @@
       height: 60px;
       box-shadow: 0px 5px 20px 0px rgba(146, 146, 146, 0.3);
     }
-    &::after{
-      content: '';
+    &::after {
+      content: "";
       position: absolute;
       width: 20px;
       height: 20px;
       left: 20px;
       top: 15px;
-      background-image: url('../images/icons/phone_icon.svg');
+      background-image: url("../images/icons/phone_icon.svg");
     }
   }
-  &__info-item--location::after{
+  &__info-item--location::after {
     width: 14px;
     left: 23px;
-    background-image: url('../images/icons/location-icon.svg');
+    background-image: url("../images/icons/location-icon.svg");
   }
-  &__info-item--email::after{
+  &__info-item--email::after {
     width: 18px;
     left: 21px;
-    background-image: url('../images/icons/mail.svg');
+    background-image: url("../images/icons/mail.svg");
   }
-  &__info-phone{
+  &__info-phone {
     display: block;
     color: $title;
   }
-  &__form{
+  &__form {
     padding: 60px 40px;
     box-shadow: 0px 5px 20px 0px rgba(146, 146, 146, 0.3);
     width: 100%;
   }
-  &__form-title{
+  &__form-title {
     font-size: 22px;
     margin-bottom: 20px;
     @extend %roboto-700;
     color: $title;
   }
-  &__form-input{
+  &__form-input {
     width: 100%;
     display: block;
     height: 60px;
@@ -1090,7 +1192,7 @@
     padding: 0 24px;
     margin-bottom: 30px;
   }
-  &__form-textarea{
+  &__form-textarea {
     width: 100%;
     display: block;
     resize: none;
@@ -1100,14 +1202,14 @@
     padding: 24px;
     margin-bottom: 30px;
   }
-  &__form-box{
+  &__form-box {
     display: flex;
     justify-content: space-between;
-    input{
+    input {
       width: 330px;
     }
   }
-  &__form-btn{
+  &__form-btn {
     @extend %btn;
     border: none;
   }
